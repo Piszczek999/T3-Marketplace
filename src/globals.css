@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-slate-800 text-slate-200;
+}
+
+.nav-item {
+  @apply rounded-full p-2 transition hover:bg-slate-700;
+}
