@@ -6,8 +6,8 @@ export default function Navbar() {
   const user = session.data?.user;
 
   return (
-    <nav className="bg-slate-900 p-1">
-      <div className="flex items-center gap-4 shadow-md">
+    <nav className="bg-slate-900 p-1 shadow-lg">
+      <div className="flex items-center gap-4">
         <h1 className="border-r-2 border-slate-700 p-2 text-xl">Marketplace</h1>
 
         <Link className="nav-item" href={"/"}>

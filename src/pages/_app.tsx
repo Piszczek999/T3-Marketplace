@@ -20,7 +20,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <div className="container mx-auto">
+      <div className="mx-auto max-w-5xl">
         <Component {...pageProps} />
       </div>
     </SessionProvider>
