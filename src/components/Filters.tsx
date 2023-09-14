@@ -1,24 +1,35 @@
-import { DetailedHTMLProps, HTMLAttributes } from "react";
+import type { DetailedHTMLProps, HTMLAttributes } from "react";
 import { useForm } from "react-hook-form";
+import { genres } from "~/constants";
+import type { OfferFilter } from "~/types";
 
-export default function Sidebar(
-  props: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
-) {
-  const { register, handleSubmit } = useForm();
+type Props = {
+  setFilter: (filter: OfferFilter) => void;
+} & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+
+export default function Sidebar({ setFilter, ...props }: Props) {
+  const { register, handleSubmit } = useForm<OfferFilter>();
 
   return (
     <div className="basis-[200px]">
       <div {...props}>
         <h1 className="text-xl">Filters:</h1>
-        <form onSubmit={handleSubmit((data) => console.log(data))}>
-          <label htmlFor="rarity">Rarity: </label>
-          <select {...register("rarity")} className="bg-slate-700">
-            <option value="common">Common</option>
-            <option value="uncommon">Uncommon</option>
-            <option value="rare">Rare</option>
+        <form
+          className="flex flex-col gap-2"
+          onSubmit={void handleSubmit((data) => setFilter(data))}
+        >
+          <label htmlFor="name">Name: </label>
+          <input {...register("name")} />
+          <label htmlFor="rarity">Genre: </label>
+          <select {...register("genre")}>
+            <option value="">{"<Select>"}</option>
+            {genres.map((genre, r) => (
+              <option key={r} value={genre}>
+                {genre}
+              </option>
+            ))}
           </select>
-          <input {...register("price")} className="bg-slate-700" />
-          <input type="submit" value="Submit" className="nav-item" />
+          <input type="submit" value="Submit" className="btn" />
         </form>
       </div>
     </div>

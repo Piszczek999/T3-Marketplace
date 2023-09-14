@@ -1,0 +1,15 @@
+export const genres = [
+  "FASHION",
+  "ELECTRONICS",
+  "FURNITURE",
+  "SPORT",
+  "BEAUTY",
+  "BOOKS",
+  "TOYS",
+  "JEWELRY",
+  "MEDICINES",
+  "FOOD",
+  "ART",
+  "PET",
+  "OTHER",
+];

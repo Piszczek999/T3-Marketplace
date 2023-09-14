@@ -10,21 +10,26 @@ export default function Navbar() {
       <div className="flex items-center gap-4">
         <h1 className="border-r-2 border-slate-700 p-2 text-xl">Marketplace</h1>
 
-        <Link className="nav-item" href={"/"}>
+        <Link className="btn" href={"/"}>
           Home
         </Link>
 
         {user && (
-          <Link className="nav-item" href={`profile/${user.id}`}>
+          <Link className="btn" href={`profile/${user.id}`}>
             Profile
           </Link>
         )}
+        {user && (
+          <Link className="btn" href={"/new-offer"}>
+            Create an offer
+          </Link>
+        )}
         {user ? (
-          <button className="nav-item ml-auto" onClick={() => void signOut()}>
+          <button className="btn ml-auto" onClick={() => void signOut()}>
             Sign Out
           </button>
         ) : (
-          <button className="nav-item ml-auto" onClick={() => void signIn()}>
+          <button className="btn ml-auto" onClick={() => void signIn()}>
             Sign In
           </button>
         )}

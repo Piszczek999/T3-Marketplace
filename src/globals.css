@@ -3,9 +3,15 @@
 @tailwind utilities;
 
 body {
-  @apply bg-slate-700 text-slate-200;
+  @apply min-h-screen bg-gradient-to-b from-slate-700 to-slate-800 text-slate-200;
 }
 
-.nav-item {
+.btn {
   @apply rounded-full p-2 transition hover:bg-slate-700;
+}
+
+input,
+select,
+textarea {
+  @apply bg-slate-700 p-1;
 }

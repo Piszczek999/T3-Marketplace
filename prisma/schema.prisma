@@ -16,6 +16,8 @@ model Offer {
     name String
     description String
     createdAt DateTime @default(now())
+    price Float
+    genre String
 
     user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 

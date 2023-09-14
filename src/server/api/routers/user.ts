@@ -8,7 +8,7 @@ import {
 
 export const userRouter = createTRPCRouter({
   getAll: publicProcedure.query(({ ctx }) => {
-    return ctx.db.offer.findMany();
+    return ctx.db.user.findMany();
   }),
   get: publicProcedure
     .input(z.object({ id: z.string() }))
