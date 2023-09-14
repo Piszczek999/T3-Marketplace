@@ -14,22 +14,18 @@ export default function NewOffer() {
   if (!session.data) return <p className="text-center">Access Denied</p>;
 
   const onSubmit: SubmitHandler<OfferInput> = (data) => {
-    createOffer
-      .mutateAsync({
-        ...data,
-        price: parseFloat(data.price),
-      })
-      .then(() => {
-        void router.push("/");
-      })
-      .catch((e) => console.error(e));
+    createOffer.mutate({
+      ...data,
+      price: parseFloat(data.price),
+    });
+    router.push("/");
   };
 
   return (
     <main className="flex justify-center">
       <form
         className="flex basis-[400px] flex-col gap-2 bg-slate-850 p-4 shadow-lg"
-        onSubmit={void handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(onSubmit)}
       >
         <label htmlFor="genre">Genre: </label>
         <select {...register("genre")}>

@@ -16,7 +16,7 @@ export default function Sidebar({ setFilter, ...props }: Props) {
         <h1 className="text-xl">Filters:</h1>
         <form
           className="flex flex-col gap-2"
-          onSubmit={void handleSubmit((data) => setFilter(data))}
+          onSubmit={handleSubmit((data) => setFilter(data))}
         >
           <label htmlFor="name">Name: </label>
           <input {...register("name")} />
