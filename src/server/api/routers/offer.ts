@@ -15,7 +15,6 @@ export const offerRouter = createTRPCRouter({
       }),
     )
     .query(({ ctx, input }) => {
-      console.log(input);
       return ctx.db.offer.findMany({
         where: {
           name: {

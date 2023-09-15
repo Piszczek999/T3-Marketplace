@@ -19,7 +19,7 @@ export default function Sidebar({ setFilter, ...props }: Props) {
           onSubmit={handleSubmit((data) => setFilter(data))}
         >
           <label htmlFor="name">Name: </label>
-          <input {...register("name")} />
+          <input placeholder="Search for an item" {...register("name")} />
           <label htmlFor="rarity">Genre: </label>
           <select {...register("genre")}>
             <option value="">{"<Select>"}</option>

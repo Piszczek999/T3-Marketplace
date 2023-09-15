@@ -1,5 +1,6 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import UserButton from "./UserButton";
 
 export default function Navbar() {
   const session = useSession();
@@ -13,21 +14,11 @@ export default function Navbar() {
         <Link className="btn" href={"/"}>
           Home
         </Link>
-
-        {user && (
-          <Link className="btn" href={`profile/${user.id}`}>
-            Profile
-          </Link>
-        )}
-        {user && (
-          <Link className="btn" href={"/new-offer"}>
-            Create an offer
-          </Link>
-        )}
+        <Link className="btn" href={"/new-offer"}>
+          Create an offer
+        </Link>
         {user ? (
-          <button className="btn ml-auto" onClick={() => void signOut()}>
-            Sign Out
-          </button>
+          <UserButton className="ml-auto" user={user} />
         ) : (
           <button className="btn ml-auto" onClick={() => void signIn()}>
             Sign In

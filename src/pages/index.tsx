@@ -16,6 +16,7 @@ export default function Home() {
     <main className="flex">
       <Filters setFilter={setFilters} className="bg-slate-800 p-4 shadow-lg" />
       <div className="flex grow flex-col gap-2 bg-slate-850 p-4 shadow-lg">
+        <h1 className="text-xl">Offers:</h1>
         {offers.data?.map((offer) => <Offer key={offer.id} offer={offer} />)}
       </div>
     </main>
