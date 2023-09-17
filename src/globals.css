@@ -15,3 +15,15 @@ select,
 textarea {
   @apply bg-slate-700 p-1;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-850;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-slate-700 hover:bg-slate-600;
+}

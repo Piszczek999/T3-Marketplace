@@ -13,7 +13,7 @@ export default function Sidebar({ setFilter, ...props }: Props) {
   return (
     <div className="basis-[200px]">
       <div {...props}>
-        <h1 className="text-xl">Filters:</h1>
+        <h1 className="mb-2 border-b-2 border-slate-700 text-xl">Filters:</h1>
         <form
           className="flex flex-col gap-2"
           onSubmit={handleSubmit((data) => setFilter(data))}

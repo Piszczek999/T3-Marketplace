@@ -8,8 +8,8 @@ export const genres = [
   "FURNITURE",
   "JEWELRY",
   "MEDICINES",
-  "OTHER",
   "PET",
   "SPORT",
   "TOYS",
+  "OTHER",
 ];

@@ -14,11 +14,13 @@ export default function Navbar() {
         <Link className="btn" href={"/"}>
           Home
         </Link>
+
         <Link className="btn" href={"/new-offer"}>
           Create an offer
         </Link>
+
         {user ? (
-          <UserButton className="ml-auto" user={user} />
+          <UserButton className="ml-auto flex items-center" user={user} />
         ) : (
           <button className="btn ml-auto" onClick={() => void signIn()}>
             Sign In

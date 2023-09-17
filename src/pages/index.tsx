@@ -8,16 +8,15 @@ export default function Home() {
   const [filters, setFilters] = useState<OfferFilter>({ name: "", genre: "" });
   const offers = api.offer.getFiltered.useQuery(filters);
 
-  useEffect(() => {
-    console.log(filters);
-  }, [filters]);
-
   return (
     <main className="flex">
       <Filters setFilter={setFilters} className="bg-slate-800 p-4 shadow-lg" />
-      <div className="flex grow flex-col gap-2 bg-slate-850 p-4 shadow-lg">
-        <h1 className="text-xl">Offers:</h1>
-        {offers.data?.map((offer) => <Offer key={offer.id} offer={offer} />)}
+      <div className="grow bg-slate-850 p-4 shadow-lg">
+        <h1 className="mb-2 border-b-2 border-slate-700 text-xl">Offers:</h1>
+        <div className="flex max-h-[80vh] flex-col gap-2 overflow-y-scroll ">
+          {offers.isLoading && <p>Loading...</p>}
+          {offers.data?.map((offer) => <Offer key={offer.id} offer={offer} />)}
+        </div>
       </div>
     </main>
   );

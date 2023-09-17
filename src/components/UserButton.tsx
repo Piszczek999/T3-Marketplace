@@ -38,7 +38,7 @@ export default function UserButton({ user, ...props }: Props) {
           />
         </button>
         {visible && (
-          <div className="absolute right-0 flex flex-col border-2 border-slate-900 bg-slate-800 p-2">
+          <div className="absolute right-0 top-12 flex flex-col border-2 border-slate-900 bg-slate-800 p-2 shadow-lg">
             <div className="flex gap-2 border-b-2 border-slate-900 pb-2">
               <img
                 className="rounded-full border-2 border-slate-500"
