@@ -27,6 +27,15 @@ export const offerRouter = createTRPCRouter({
         },
       });
     }),
+  getUser: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .query(({ ctx, input }) => {
+      return ctx.db.offer.findMany({
+        where: {
+          userId: input.id,
+        },
+      });
+    }),
   create: protectedProcedure
     .input(
       z.object({
