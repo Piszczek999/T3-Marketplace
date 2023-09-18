@@ -25,6 +25,7 @@ export default function NewOffer() {
 
   if (status === "unauthenticated") {
     void signIn();
+    return null;
   }
 
   return (

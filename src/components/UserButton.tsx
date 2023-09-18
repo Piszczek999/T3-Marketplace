@@ -1,11 +1,6 @@
 import { signOut } from "next-auth/react";
 import Link from "next/link";
-import {
-  ButtonHTMLAttributes,
-  DetailedHTMLProps,
-  HTMLAttributes,
-  useState,
-} from "react";
+import { type DetailedHTMLProps, type HTMLAttributes, useState } from "react";
 
 type Props = {
   user: UserData;

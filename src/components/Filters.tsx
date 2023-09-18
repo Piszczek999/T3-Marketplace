@@ -1,14 +1,14 @@
+import { useRouter } from "next/router";
 import type { DetailedHTMLProps, HTMLAttributes } from "react";
 import { useForm } from "react-hook-form";
 import { genres } from "~/constants";
 import type { OfferFilter } from "~/types";
 
-type Props = {
-  setFilter: (filter: OfferFilter) => void;
-} & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
-
-export default function Sidebar({ setFilter, ...props }: Props) {
+export default function Sidebar({
+  ...props
+}: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>) {
   const { register, handleSubmit } = useForm<OfferFilter>();
+  const router = useRouter();
 
   return (
     <div className="basis-[200px]">
@@ -16,7 +16,9 @@ export default function Sidebar({ setFilter, ...props }: Props) {
         <h1 className="mb-2 border-b-2 border-slate-700 text-xl">Filters:</h1>
         <form
           className="flex flex-col gap-2"
-          onSubmit={handleSubmit((data) => setFilter(data))}
+          onSubmit={handleSubmit((data) =>
+            router.push(`?name=${data.name}&genre=${data.genre}`),
+          )}
         >
           <label htmlFor="name">Name: </label>
           <input placeholder="Search for an item" {...register("name")} />
