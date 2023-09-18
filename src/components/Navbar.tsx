@@ -1,6 +1,7 @@
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import UserButton from "./UserButton";
+import Searchbar from "./Searchbar";
 
 export default function Navbar() {
   const session = useSession();
@@ -18,6 +19,8 @@ export default function Navbar() {
         <Link className="btn" href={"/new-offer"}>
           Create an offer
         </Link>
+
+        <Searchbar />
 
         {user ? (
           <UserButton className="ml-auto flex items-center" user={user} />

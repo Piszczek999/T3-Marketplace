@@ -5,8 +5,12 @@ import { api } from "~/utils/api";
 
 export default function Home() {
   const router = useRouter();
-  const name = (router.query.name as string) || "";
-  const genre = (router.query.genre as string) || "";
+  // const name = (router.query.name as string) || "";
+  // const genre = (router.query.genre as string) || "";
+  const { name = "", genre = "" } = router.query as {
+    name: string;
+    genre: string;
+  };
 
   const offers = api.offer.getFiltered.useQuery({ name, genre });
 

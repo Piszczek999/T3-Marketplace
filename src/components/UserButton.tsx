@@ -46,10 +46,20 @@ export default function UserButton({ user, ...props }: Props) {
                 <p>{user.email}</p>
               </div>
             </div>
-            <Link className="btn text-center" href={`profile/${user.id}`}>
+            <Link
+              className="btn text-center"
+              href={`/profile/${user.id}`}
+              onClick={() => setVisible(false)}
+            >
               Profile
             </Link>
-            <button className="btn" onClick={() => void signOut()}>
+            <button
+              className="btn"
+              onClick={() => {
+                setVisible(false);
+                void signOut();
+              }}
+            >
               Sign Out
             </button>
           </div>

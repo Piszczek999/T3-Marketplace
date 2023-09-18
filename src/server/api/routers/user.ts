@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { string, z } from "zod";
 
 import {
   createTRPCRouter,
@@ -16,6 +16,27 @@ export const userRouter = createTRPCRouter({
       return ctx.db.user.findUnique({
         where: {
           id: input.id,
+        },
+      });
+    }),
+  getSearch: publicProcedure
+    .input(
+      z.object({
+        text: string(),
+      }),
+    )
+    .query(({ ctx, input }) => {
+      return ctx.db.user.findMany({
+        where: {
+          name: {
+            contains: input.text,
+            mode: "insensitive",
+          },
+        },
+        select: {
+          name: true,
+          image: true,
+          id: true,
         },
       });
     }),
